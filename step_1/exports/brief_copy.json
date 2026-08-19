@@ -1,0 +1,200 @@
+{
+  "help": "Edit titles and captions here, then run: python scripts/viz.py. Do not change scripts/viz.py for labels.",
+  "lang": "en",
+  "title": "Geneva canton housing market",
+  "subtitle": "Official OCSTAT transactions · two different price units",
+  "tech_line": "OCSTAT · Python · DuckDB · extract → transform → validate",
+  "params": {
+    "budget_chf": 800000,
+    "cagr_years": 10,
+    "quarterly_from": 2017
+  },
+  "kpi": {
+    "left_caption": "Canton · existing PPE · free market · 2024",
+    "mid_caption": "City of Geneva · existing PPE · free market · 2024",
+    "right_caption": "City premium vs canton (same filters)"
+  },
+  "charts": {
+    "01_ppe_trend": {
+      "title": "Existing apartments: median CHF/m² doubled since 2006",
+      "ylabel": "CHF / m²",
+      "note": "Source: OCSTAT T 05.05.1.4.03 · Existing PPE, free market, canton · Band = P25–P75",
+      "legend_median": "Median",
+      "legend_iqr": "P25–P75"
+    },
+    "02_city_vs_canton": {
+      "title": "City of Geneva has stayed above the canton PPE median",
+      "ylabel": "CHF / m²",
+      "note": "Existing PPE, free market, annual. City premium = city median / canton median − 1. Latest: +{premium_pct}%.",
+      "legend_canton": "Canton",
+      "legend_city": "City of Geneva",
+      "kpi_label": "City premium {premium_pct}%"
+    },
+    "03_ppe_map": {
+      "title": "Apartments (PPE) in 2024: CHF/m² only where OCSTAT publishes a median",
+      "ylabel": "CHF / m²",
+      "note": "Grey = no median (n<10 or not in the table), not zero. Residual Autres groups not mapped. City of Geneva = four sectors, one colour."
+    },
+    "03b_map_apartments": {
+      "title": "Apartment prices per m² by commune",
+      "subtitle": "Canton of Geneva \u00b7 Existing apartments (PPE) \u00b7 CHF/m\u00b2 \u00b7 Free market \u00b7 2024",
+      "ylabel": "CHF / m\u00b2",
+      "note": "Source: OCSTAT T 05.05.1.4.03 \u00b7 Notarial transactions \u00b7 Grey = n<10 (unpublished) \u00b7 City of Geneva = four sectors combined"
+    },
+    "03c_map_houses": {
+      "title": "House prices by commune",
+      "subtitle": "Canton of Geneva \u00b7 Detached houses \u00b7 Median CHF per dwelling \u00b7 2024",
+      "ylabel": "CHF / dwelling",
+      "note": "Source: OCSTAT T 05.05.1.3.03 \u00b7 Notarial transactions \u00b7 Grey = n<10 (unpublished) \u00b7 Not CHF/m\u00b2"
+    },
+    "04_ppe_range": {
+      "title": "Existing apartment prices vary 1.8\u00d7 across communes",
+      "subtitle": "Canton of Geneva \u00b7 Existing apartments (PPE) \u00b7 CHF/m\u00b2 \u00b7 Free market \u00b7 2024",
+      "xlabel": "CHF / m\u00b2",
+      "note": "Source: OCSTAT T 05.05.1.4.03 \u00b7 P25\u2013P75 range \u00b7 YoY % vs 2023 \u00b7 Unpublished communes (n<10) omitted",
+      "vline_label": "Canton median"
+    },
+    "04c_new_vs_existing_commune": {
+      "title": "Within each commune, new apartments cost 17\u201329% more",
+      "subtitle": "Canton of Geneva \u00b7 CHF/m\u00b2 \u00b7 Free market \u00b7 2024 \u00b7 Only communes with both segments",
+      "xlabel": "CHF / m\u00b2",
+      "note": "Source: OCSTAT T 05.05.1.4.03 \u00b7 Median CHF/m\u00b2 \u00b7 Canton-level \u201cexisting > new\u201d reversal = Simpson\u2019s paradox (composition effect)",
+      "label_existing": "Existing",
+      "label_new": "New"
+    },
+    "04b_ppe_range_new": {
+      "title": "New apartments: only 5 communes have enough data",
+      "subtitle": "Canton of Geneva \u00b7 New apartments (PPE) \u00b7 CHF/m\u00b2 \u00b7 Free market \u00b7 2024",
+      "xlabel": "CHF / m\u00b2",
+      "note": "Source: OCSTAT T 05.05.1.4.03 \u00b7 P25\u2013P75 range \u00b7 YoY % vs 2023 where available \u00b7 Unpublished = n<10",
+      "vline_label": "Canton median"
+    },
+    "05_premium_vs_canton": {
+      "title": "Vs the canton: City premium, Vernier the steepest published discount",
+      "xlabel": "Premium vs canton median (%)",
+      "note": "Existing PPE, free market, 2024. Premium = commune median / canton median − 1. Canton benchmark at 0%. Author's calculations.",
+      "zero_label": "Canton"
+    },
+    "06_ppe_new_vs_existing": {
+      "title": "New apartments are not automatically more expensive per m² than existing apartments",
+      "ylabel": "CHF / m²",
+      "note": "Apartments in condominium ownership (PPE), free market, canton, annual medians. Quarterly CHF/m² does not exist — do not splice object prices onto this chart.",
+      "legend_existing": "Existing",
+      "legend_new": "New"
+    },
+    "06b_apartments_2024_quartiles": {
+      "title": "Existing apartments cost more per m² than new ones",
+      "subtitle": "Canton of Geneva · CHF/m² · Free market (PPE) · Annual 2024",
+      "xlabel": "CHF / m²",
+      "note": "Source: OCSTAT T 05.05.1.4.03 · P25\u2013P75 range, free market · YoY % vs 2023",
+      "label_existing": "Existing\napartments (PPE)",
+      "label_new": "New\napartments (PPE)",
+      "canton_label": "Canton median"
+    },
+    "07_new_build_premium": {
+      "title": "New-build premium vs existing apartments has changed sign, not a stable markup",
+      "ylabel": "New vs existing, %",
+      "note": "Canton, free market, annual. Premium = median_new / median_existing − 1. Historical comparison only — not a buy-new vs buy-existing recommendation. Author's calculations."
+    },
+    "08_price_vs_cagr": {
+      "title": "Current level vs {cagr_years}-year CAGR — two different questions",
+      "xlabel": "2024 median CHF/m²",
+      "ylabel": "CAGR {start_year}–{end_year}, %",
+      "note": "Source: OCSTAT T 05.05.1.4.03 · Existing PPE, free market · CAGR = annualised growth · Author's calculations"
+    },
+    "09_q_latest_avg_ticket": {
+      "title": "New vs existing: average transaction value across four segments",
+      "subtitle": "Canton of Geneva · Average ticket (value / n), not median · Quarterly — the only frequency with new vs existing",
+      "ylabel": "Average Price per Transaction (CHF)",
+      "footnote": "Source: OCSTAT T 05.05.1.1.01 \u00b7 YoY % vs same quarter prior year \u00b7 House average skewed by premium communes",
+      "label_existing": "Existing",
+      "label_new": "New",
+      "label_house": "Houses",
+      "label_ppe": "Apts (PPE)"
+    },
+    "10_volume_activity": {
+      "title": "Transaction counts: apartments remain the larger market; existing stock dominates later charts",
+      "ylabel": "Transactions",
+      "note": "Canton, annual ensemble counts (new + existing). n is activity, not a direct liquidity measure. Do not plot n on the same axis as CHF/m².",
+      "legend_ppe": "Apartments (PPE)",
+      "legend_house": "Houses"
+    },
+    "11_volume_new_existing": {
+      "title": "Turnover mix: existing dwellings account for most observed sales",
+      "ylabel": "Transactions",
+      "note": "Canton, annual. New vs existing composition. New vs existing CHF/m² exists only for PPE, annual — not this chart.",
+      "legend_ex": "Existing",
+      "legend_new": "New",
+      "ppe_panel": "Apartments (PPE)",
+      "house_panel": "Houses"
+    },
+    "12_quarterly_pulse": {
+      "title": "Quarterly pulse: counts and ticket size — not CHF/m²",
+      "ylabel_n": "Transactions",
+      "ylabel_px": "Median CHF million / object",
+      "note": "Canton. Activity = ensemble n. Price = existing dwellings, CHF per object (OCSTAT 1.1.02). PPE quarterly prices are not CHF/m² and are not spliced onto the annual m² series.",
+      "legend_ppe": "Apartments (PPE)",
+      "legend_house": "Houses"
+    },
+    "13_house_ticket": {
+      "title": "House ticket size: published communes, not a price per living-space m²",
+      "xlabel": "CHF million per house",
+      "note": "Detached houses, 2024, median with P25–P75. OCSTAT does not publish living-space CHF/m² for houses. Do not compare this axis with PPE CHF/m²."
+    },
+    "14_q_latest_existing_range": {
+      "title": "House prices show 2\u00d7 wider dispersion than apartments",
+      "subtitle": "Canton of Geneva \u00b7 CHF per transaction (not per m\u00b2) \u00b7 Existing stock only",
+      "xlabel": "CHF million per transaction",
+      "label_house": "Houses",
+      "label_ppe": "Apartments (PPE)",
+      "note": "Source: OCSTAT T 05.05.1.1.02 \u00b7 P25\u2013P75 range, existing stock \u00b7 YoY % vs {prev_q}"
+    },
+    "15_price_vs_n": {
+      "title": "Same-cell n: some high apartment medians rest on few observed sales",
+      "xlabel": "2024 median CHF/m²",
+      "ylabel": "Transactions in the same OCSTAT cell (n)",
+      "note": "Existing apartments (PPE), free market, 2024. n is fact_price.n for the same commune/year/filter — not canton volume. Small n: treat the median as a thin sample. Author's calculations."
+    },
+    "17_market_shocks": {
+      "title": "Year-on-year changes around 2008, 2020 and 2022 — association, not causes",
+      "ylabel_ppe": "Existing apartments CHF/m², YoY %",
+      "ylabel_n": "Apartments (all) n, YoY %",
+      "ylabel_house": "House ticket, YoY %",
+      "note": "Canton, annual. Vertical markers = calendar years often discussed, not identified shocks. The chart does not prove interest-rate or COVID causality. Author's calculations."
+    },
+    "18_libre_vs_zd": {
+      "title": "Apartments in development zones have lower medians than the free-market ensemble",
+      "ylabel": "CHF / m²",
+      "note": "Canton, annual, condition = ensemble (all) for both series so only market differs. Libre and ZD are different regimes — do not blend into one “market price”.",
+      "legend_libre": "Free market (ensemble)",
+      "legend_zd": "Zones de développement (ensemble)"
+    },
+    "19_budget_area": {
+      "title": "At a CHF {budget} budget, implied floor area differs sharply by commune",
+      "xlabel": "Implied m² = budget / median CHF per m²",
+      "note": "Theoretical benchmark only: Budget / published existing-PPE free-market median, 2024. Not predicted apartment size; ignores unit quality, fees, financing and whether such dwellings transacted. Author's calculations."
+    },
+    "21_quarterly_corridor": {
+      "title": "Quarterly prices: stable corridor, no sustained decline",
+      "ylabel_apt": "Apartments · CHF per object",
+      "ylabel_house": "Houses · CHF per object",
+      "note": "Source: OCSTAT T 05.05.1.1.02 · Existing dwellings, canton · Band = P25–P75 · Q1 2007 – Q2 2026"
+    },
+    "20_houses_trend": {
+      "title": "Detached houses (all): median per dwelling tripled since 1990",
+      "ylabel": "CHF million per house",
+      "note": "Source: OCSTAT T 05.05.1.3.03 · All detached houses, canton · Band = P25–P75 · Not CHF/m²",
+      "legend_median": "Median",
+      "legend_iqr": "P25–P75"
+    }
+  },
+  "callout": "Compare apartments in CHF/m² and houses in CHF per dwelling. Do not put them on one CHF axis.",
+  "conclusions": [
+    "In 2024, existing PPE on the free market: canton {canton_m2} CHF/m², City of Geneva {city_m2} (+{premium_pct}%).",
+    "Among {n_communes} communes with a published median the range is wide: {top_commune} {top_m2} to {bottom_commune} {bottom_m2} CHF/m² — not a 45-commune choropleth.",
+    "Houses in 2024: median {house_m} million CHF per dwelling; the canton does not publish living-space CHF/m².",
+    "Turnover 2024: houses {h_ex} existing vs {h_new} new; PPE {p_ex} existing vs {p_new} new.",
+    "New PPE median {new_m2} CHF/m² vs existing {canton_m2} in 2024 ({new_prem_pct}% new-build premium)."
+  ],
+  "footer": "Source: OCSTAT T 05.05 / SITG CAD_COMMUNE. Missing values not interpolated. Derived metrics marked as author's calculations. Code: GitHub."
+}

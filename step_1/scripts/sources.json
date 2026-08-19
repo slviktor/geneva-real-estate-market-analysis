@@ -1,0 +1,44 @@
+[
+  {
+    "id": "T_05_05_1_1_01",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_1_01.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_1_02",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_1_02.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_2_01",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_2_01.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_4_03",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_4_03.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_3_03",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_3_03.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "sitg_cad_commune",
+    "kind": "geojson",
+    "publisher": "SITG",
+    "url": "https://vector.sitg.ge.ch/arcgis/rest/services/Hosted/CAD_COMMUNE/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson",
+    "force_curl": false
+  }
+]

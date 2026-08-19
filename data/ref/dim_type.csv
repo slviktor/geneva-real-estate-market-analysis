@@ -1,0 +1,12 @@
+type_id,ocstat_label,segment_v1,is_ensemble,condition
+land,Terrain non bâti,,0,
+house_existing,Maison individuelle non neuve,house,0,existing
+house_new,Maison individuelle neuve,house,0,new
+house,Maison individuelle — Ensemble,house,1,all
+multi_unit,Bâtiment à plusieurs logements,,0,
+mixed,Bâtiment mixte (activité et habitation),,0,
+commercial,"Bât. admin., commercial ou industriel",,0,
+ppe_existing,Appartement en PPE non neuf,ppe,0,existing
+ppe_new,Appartement en PPE neuf,ppe,0,new
+ppe,Appartement en PPE — Ensemble,ppe,1,all
+other,Autre,,0,

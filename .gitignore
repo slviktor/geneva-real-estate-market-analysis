@@ -1,0 +1,17 @@
+raw/*.xlsx
+raw/*.xls
+raw/*.pdf
+raw/*.zip
+raw/*.json
+!raw/.gitkeep
+data/geneva.duckdb
+data/_inspect*
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+step_1/scripts/__pycache__/
+
+# Office temp files
+~$*.pptx
+~$*.xlsx
+~$*.docx
