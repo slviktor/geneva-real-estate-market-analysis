@@ -1,7 +1,7 @@
 # Geneva Real Estate — Open-data market analysis
 
-Official OCSTAT transaction statistics on the Geneva (canton) residential market.
-Star schema → validated CSVs → 25 charts → LinkedIn PDF brief.
+Official OCSTAT transaction statistics on the Geneva (canton) residential market,
+plus long-run benchmarks (BIS, BFS IMPI; optional local Wüest charts).
 
 **Stack:** Python · DuckDB · pandas · matplotlib · python-pptx
 
@@ -32,36 +32,22 @@ Star schema → validated CSVs → 25 charts → LinkedIn PDF brief.
 ## Repository layout
 
 ```
-data/                     shared star schema — all steps
-  fact_price.csv
-  fact_volume.csv
-  ref/                    dim_*.csv + map_geo_alias.csv
-  SCHEMA.md               field definitions and metric constraints
-  validate_report.md      0 FAIL · 2 WARN · 16 PASS
+data/                     shared star schema (Step 1 facts + dims)
+raw/                      downloads (git-ignored); catalogue in raw/README.md
+scripts/extract.py        shared downloader
 
-raw/                      downloaded source files (git-ignored; created by extract.py)
-
-step_1/                   Step 1 — descriptive statistics snapshot
-  scripts/
-    extract.py            download OCSTAT xlsx + SITG GeoJSON → raw/
-    transform.py          parse Excel → data/ star schema (+ optional geneva.duckdb)
-    validate.py           schema and integrity checks → data/validate_report.md
-    validate.sql          SQL equivalents of key checks
-    viz.py                generate 25 charts → step_1/exports/figures/*.png
-    make_pptx.py          full PowerPoint brief (7 slides)
-    make_pptx_v2.py       short LinkedIn PowerPoint (3 slides)
-    sources.json          declarative list of OCSTAT source URLs
-  exports/
-    figures/              25 charts, 300 dpi PNG
-    brief_copy.json       all chart titles, labels, notes (edit here, not in viz.py)
-  report/
-    Geneva_Market_Brief_LinkedIn (main).pdf     ← main deliverable
-    Geneva_Market_Brief_LinkedIn (main).pptx
-    Geneva_Market_Brief_(full).pptx
-
-requirements.txt
-.gitignore
+step_1/                   Market Analytics (levels, volumes, maps, brief)
+  sources.json
+  scripts/                transform, validate, viz, pptx
+  exports/  report/
+  long_run/               Long-run price benchmarks (module inside Step 1)
+    README.md             Wüest / IAZI citation policy
+    TIME_ALIGNMENT.md     dating conventions (annual vs Q4)
+    sources_long_run.json
+    local/                private Wüest exports (git-ignored)
 ```
+
+**Not published yet:** `step_2/` (Effective Demand — work in progress) is local-only.
 
 ---
 
@@ -70,24 +56,25 @@ requirements.txt
 ```bash
 pip install -r requirements.txt
 
-# 1. Download source files into raw/
-python step_1/scripts/extract.py
+# Download Step 1 sources
+python scripts/extract.py --sources step_1/sources.json
 
-# 2. Parse into data/*.csv (+ optional data/geneva.duckdb)
+# Step 1 pipeline
 python step_1/scripts/transform.py
-
-# 3. Validate — expect 0 FAIL
 python step_1/scripts/validate.py
-
-# 4. Generate charts (25 PNGs)
 python step_1/scripts/viz.py
+python step_1/scripts/make_pptx_v2.py
 
-# 5. Build presentation
-python step_1/scripts/make_pptx_v2.py   # short LinkedIn brief (3 slides)
-python step_1/scripts/make_pptx.py      # full brief (7 slides)
+# Long-run benchmarks (OCSTAT + BIS + BFS; optional local Wüest)
+python scripts/extract.py --sources step_1/long_run/sources_long_run.json
+python step_1/long_run/scripts/transform_long_run.py
+python step_1/long_run/scripts/viz_long_run.py
+# Optional Wüest (local only — never committed):
+#   python step_1/long_run/scripts/fetch_wuest_local.py
+#   then re-run transform_long_run.py + viz_long_run.py
 ```
 
-Chart titles and captions live in `step_1/exports/brief_copy.json` — edit there, then rerun `viz.py`.
+Chart titles: edit `step_1/exports/brief_copy.json` or `step_1/long_run/exports/brief_copy_long_run.json`, then re-run the matching viz script.
 
 ---
 
@@ -110,20 +97,20 @@ Chart titles and captions live in `step_1/exports/brief_copy.json` — edit ther
 
 ---
 
-## Data licence
+## Data licence (summary)
 
-Source: **OCSTAT** (Office cantonal de la statistique, Canton of Geneva) · **SITG** (Système d'Information du Territoire à Genève).
+| Source | Publish raw / processed? | Attribution |
+|--------|--------------------------|-------------|
+| **OCSTAT** | ✅ | Office cantonal de la statistique, Canton of Geneva |
+| **SITG** | ✅ | SITG CAD_COMMUNE (Open Data Level A) |
+| **BIS** RPP (via FRED) | ✅ | BIS Residential Property Price database; note “via FRED” |
+| **BFS** IMPI | ✅ | Federal Statistical Office — Swiss Residential Property Price Index |
+| **Wüest Partner** | ❌ machine-readable series | Charts OK with *Source: Wüest Partner*; see `step_1/long_run/README.md` |
+| **IAZI** | ❌ | Text + link only |
 
-Under the [Loi sur la statistique publique cantonale (LStat, B 4 40)](https://silgeneve.ch/legis/data/rsg_b4_40.htm), Art. 21 al. 6:
+OCSTAT ([LStat Art. 21 al. 6](https://silgeneve.ch/legis/data/rsg_b4_40.htm)): use/reproduction free with source indicated.
 
-> *"L'utilisation ou la reproduction des résultats statistiques publiés ou diffusés sous diverses formes est libre, pour autant que leur origine et leur source soient indiquées."*
+Raw downloads under `raw/` are git-ignored — run `extract.py`.  
+Long-run fact tables that may embed Wüest (`data/fact_long_run_ppe.csv`, `data/fact_long_run_validation.json`) are also git-ignored.
 
-Translation: **Use and reproduction of published statistical results is free, provided the origin and source are indicated.**
-
-SITG geographic data (CAD_COMMUNE) is released under **Level A — Open Data** (see [SITG conditions](https://sitg.ge.ch/ressources/conditions-utilisation-donnees)): freely usable, including commercially, with mandatory source attribution.
-
-**Attribution used throughout this project:**
-`Source: OCSTAT, Canton of Geneva / SITG CAD_COMMUNE`
-
-The CSV files in `data/` are derived aggregates of publicly available OCSTAT tables.
-Raw source Excel files are not committed (git-ignored) — run `extract.py` to download them directly from OCSTAT.
+Full catalogue: [`raw/README.md`](raw/README.md).

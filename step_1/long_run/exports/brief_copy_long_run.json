@@ -1,0 +1,96 @@
+{
+
+  "story": "Do Geneva's official transaction prices tell the same long-term story as professional Swiss property indices?",
+
+  "charts": {
+
+    "lr_01_normalized_trend": {
+
+      "title": "Apartment prices since 1990: Geneva city, canton and Swiss benchmarks",
+
+      "ylabel": "Index (1990 = 100)",
+
+      "note": "PPE: OCSTAT = calendar-year median CHF/m² (ensemble to 2005, existing+libre from 2006). Wüest = published annual hedonic TPI (1985=100), rebased 1990=100. End labels: nominal + real CAGR (Geneva CPI annual mean)."
+
+    },
+
+    "lr_02_yoy_growth": {
+
+      "title": "Annual growth rate: Geneva vs Swiss benchmarks",
+
+      "ylabel": "Year-over-year change (%)",
+
+      "note": "BFS IMPI condo starts ~2017. Levels need not match across methods — shared direction and cycles confirm the trend."
+
+    },
+
+    "lr_03_relative_performance": {
+
+      "title": "Geneva relative to Switzerland (Wüest and BIS)",
+
+      "ylabel": "Relative index (1990 = 100)",
+
+      "note": "Solid: Lake Geneva / Switzerland (Wüest, single method). Dashed: OCSTAT / BIS (cross-method). Above 100 = outperformance since 1990."
+
+    },
+
+    "lr_04_open_official": {
+
+      "title": "Open official Swiss indices vs Geneva (recent window)",
+
+      "ylabel": "Index (2017 = 100)",
+
+      "note": "BIS RPP and BFS IMPI = freely available official data. Short history — recent validation only, not a full cycle."
+
+    },
+
+    "lr_05_drawdowns": {
+
+      "title": "Drawdowns from peak: depth and duration",
+
+      "ylabel_top": "Drawdown from peak (%)",
+
+      "subtitle_bottom": "Episode map: how deep × how long",
+
+      "ylabel_bottom": "Max depth (% decline from peak)",
+
+      "xlabel_bottom": "Duration (years, peak → recovery; * = still underwater)",
+
+      "note": "Drawdown = % below running peak of index (1990=100). Episodes with depth ≥ 3%. Apartments (PPE) series."
+
+    },
+
+    "lr_06_houses_trend": {
+
+      "title": "House prices since 1990: Geneva canton vs Swiss benchmarks",
+
+      "ylabel": "Index (1990 = 100)",
+
+      "note": "Houses only + Geneva CPI. OCSTAT = median CHF/object; real CAGR uses Geneva CPI. Not level-comparable to PPE CHF/m²."
+
+    },
+
+    "lr_07_prices_vs_costs": {
+
+      "title": "Inflation and construction costs: Geneva vs Switzerland",
+
+      "ylabel": "Index (1990 = 100)",
+
+      "note": "Geneva CPI and Switzerland CPI (T 05.02.02, annual mean). Geneva housing construction cost (T 05.03.1.01). No transaction prices — see lr_01 / lr_06."
+
+    },
+
+    "lr_08_implied_size": {
+
+      "title": "Implied typical apartment size: new vs existing (Geneva canton)",
+
+      "ylabel": "Implied size (m²)",
+
+      "note": "Proxy: OCSTAT median object price (kCHF)×1000 / median CHF/m², same segment (T 05.05.1.4.01). Not median floor area. Neufs vs non-neufs from 2006. End labels: level + CAGR over available span."
+
+    }
+
+  }
+
+}
+

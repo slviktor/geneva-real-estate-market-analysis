@@ -1,6 +1,6 @@
 # Validate report
 
-Date: 2026-08-19. Method: [`VALIDATION.md`](VALIDATION.md).
+Date: 2026-08-19. Method: `step_1/scripts/validate.py`.
 
 **0 FAIL · 2 WARN · 16 PASS**
 

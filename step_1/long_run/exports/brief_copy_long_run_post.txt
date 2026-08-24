@@ -1,0 +1,72 @@
+Geneva real estate: what 35 years of official data tell a potential buyer
+
+I analyzed 35 years of Geneva property transactions — not listings or appraisals, but completed notarial sales (OCSTAT). Then cross-validated with Wüest Partner hedonic indices and BIS/BFS national benchmarks.
+
+Here's what the data actually shows.
+
+━━━━━━━━━━━━━━━━━━━━
+
+THE LONG GAME
+
+▸ Geneva canton apartments: +2.5%/yr nominal, +1.4%/yr above inflation since 1990
+▸ Geneva city: +2.9%/yr — prices roughly double every 25 years
+▸ Houses: +2.4%/yr canton, +2.8%/yr Lake Geneva region
+▸ Three independent sources (OCSTAT, Wüest, BIS) — correlation 0.99 on levels. The trend is real.
+
+━━━━━━━━━━━━━━━━━━━━
+
+THE RISK NO ONE TALKS ABOUT
+
+▸ Geneva had two full correction cycles
+▸ Worst case: –25% from peak, 14 years to break even (city, 1990–2004)
+▸ Second cycle: –12%, 9 years to recover (canton, 2012–2021)
+▸ Switzerland nationally dropped only –10% — Geneva amplifies the cycle 2×
+
+But: every new peak exceeded the previous one.
+If you can hold through a downturn, history rewarded patience.
+
+━━━━━━━━━━━━━━━━━━━━
+
+WHAT'S PUSHING PRICES NOW
+
+▸ Construction costs in Geneva: +18% since 2020 (faster than CPI)
+▸ New builds get more expensive to deliver → supports existing property values
+▸ Typical existing apartment that sells: ~120 m² — unchanged for 18 years
+▸ New builds: ~140 m² and getting larger — developers target the premium end
+
+━━━━━━━━━━━━━━━━━━━━
+
+PRACTICAL TAKEAWAY
+
+If you're considering buying in Geneva:
+
+→ Budget for a full cycle. Breaking even may take 8–14 years if you buy at the wrong time.
+→ Think real returns, not nominal: +1.4–1.9%/yr after inflation — solid, not spectacular.
+→ "New is cheaper" at canton level is an illusion — composition effect. Within each commune, new costs 17–29% more.
+→ Rising construction costs = structural tailwind for existing property owners.
+
+━━━━━━━━━━━━━━━━━━━━
+
+All data, charts, and Python code → GitHub (link in first comment)
+
+Built with: Python · DuckDB · pandas · matplotlib
+Data: OCSTAT · Wüest Partner · BIS/FRED · BFS
+
+#RealEstate #Geneva #DataAnalysis #Python #OpenData #Switzerland
+
+
+━━━━━━━━━━━━━━━━━━━━
+FIRST COMMENT:
+━━━━━━━━━━━━━━━━━━━━
+
+Full analysis with charts and PDF brief:
+🔗 GitHub: [repo URL]
+
+Data sources:
+• OCSTAT T 05.05 — official notarial transactions, Canton of Geneva (1990–2024)
+• Wüest Partner — hedonic transaction price index (1985–2025)
+• BIS residential property prices via FRED (1970–2026)
+• BFS IMPI condo index (2017–2026)
+
+Part 2 of an open-data project on the Geneva residential market.
+Part 1: current price levels and commune-level geography.

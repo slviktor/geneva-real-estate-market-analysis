@@ -71,7 +71,7 @@ def geo_id_str(s: pd.Series) -> pd.Series:
 
 
 def latest(pattern: str) -> Path:
-    files = sorted(p for p in RAW.glob(pattern) if not p.name.startswith("~$"))
+    files = sorted(p for p in RAW.rglob(pattern) if not p.name.startswith("~$"))
     if not files:
         raise FileNotFoundError(pattern)
     return files[-1]
@@ -1394,11 +1394,11 @@ def save_chart(fig: plt.Figure, name: str) -> Path:
 
 def write_notes(k: dict, copy: dict, exported: list[str]) -> Path:
     lines = [
-        "# Текст для вёрстки PDF",
+        "# PDF layout notes",
         "",
-        "Картинки: `exports/figures/*.png` (300 dpi).",
+        "Figures: `exports/figures/*.png` (300 dpi).",
         "Change titles/captions in `exports/brief_copy.json`, then `python scripts/viz.py`.",
-        "Верстать в **Google Slides / PowerPoint**, A4 landscape, File → Download as PDF.",
+        "Layout in **Google Slides / PowerPoint**, A4 landscape, File → Download as PDF.",
         "",
         "P2 skipped (indexed commune trends, house map, historical stability).",
         "Budget chart uses `params.budget_chf`. CAGR uses `params.cagr_years`.",
@@ -1417,7 +1417,7 @@ def write_notes(k: dict, copy: dict, exported: list[str]) -> Path:
         "",
         copy["callout"],
         "",
-        "## Выводы",
+        "## Conclusions",
         "",
     ]
     for i, text in enumerate(copy["conclusions"], 1):

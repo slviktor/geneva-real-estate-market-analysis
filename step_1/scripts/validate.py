@@ -4,7 +4,7 @@ Checks on data/*.csv (source of truth). DuckDB not required.
   python scripts/validate.py
 
 Writes data/validate_report.md. Exit 1 if any FAIL.
-Method: data/VALIDATION.md
+Method: step_1/scripts/validate.py (writes data/validate_report.md)
 """
 from __future__ import annotations
 
@@ -308,7 +308,7 @@ def write_report(checks: list[dict], d: dict) -> Path:
     lines = [
         "# Validate report",
         "",
-        f"Date: {date.today().isoformat()}. Method: [`VALIDATION.md`](VALIDATION.md).",
+        f"Date: {date.today().isoformat()}. Method: `step_1/scripts/validate.py`.",
         "",
         f"**{counts[FAIL]} FAIL · {counts[WARN]} WARN · {counts[PASS]} PASS**",
         "",

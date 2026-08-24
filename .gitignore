@@ -1,12 +1,42 @@
+# Raw downloads (git-ignored) — keep structure + this catalogue
+raw/**
+!raw/**/
+!raw/**/.gitkeep
+!raw/README.md
+!raw/**/README.md
+
+# Legacy flat raw patterns (if any remain)
 raw/*.xlsx
 raw/*.xls
+raw/*.csv
 raw/*.pdf
 raw/*.zip
 raw/*.json
-!raw/.gitkeep
+raw/*.geojson
+
+# Private third-party exports (Wüest etc.) — never commit data files
+step_1/long_run/local/**
+!step_1/long_run/local/README.md
+
+# Long-run fact tables may include Wüest series after local transform — keep local only
+data/fact_long_run_ppe.csv
+data/fact_long_run_validation.json
+
+# Step 2 (Effective Demand) — work in progress, do not publish yet
+step_2/
+data/fact_demo_*.csv
+data/fact_household_*.csv
+data/fact_housing_need.csv
+data/fact_migration_age.csv
+data/fact_pop_age_canton.csv
+data/transform_2a_log.md
+data/raw_inventory_sources_2a.json
+
 data/geneva.duckdb
 data/_inspect*
+data/raw_inventory_*.json
 __pycache__/
+**/__pycache__/
 .ipynb_checkpoints/
 .venv/
 step_1/scripts/__pycache__/

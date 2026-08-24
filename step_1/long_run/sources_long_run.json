@@ -1,0 +1,150 @@
+[
+  {
+    "id": "T_05_05_1_4_01",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Canton PPE CHF/m² P25/median/P75 annual from 1990",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_4_01.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_3_01",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Canton houses CHF/object annual from 1990",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_3_01.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_1_02",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Quarterly canton tickets/quartiles — short-run target",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_1_02.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_4_03",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Commune PPE CHF/m² incl. Ville de Genève",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_4_03.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_4_04",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Ville de Genève sectors PPE CHF/m² annual",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_4_04.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_05_1_3_03",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Ville de Genève houses CHF/object annual (thin n)",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_05/T_05_05_1_3_03.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_02_04",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Detailed Geneva CPI basket — May 2000+ (not primary long deflator)",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_02/T_05_02_04.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_02_02",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Annual Swiss + Geneva CPI since 1966 (Sep 1966=100) — primary deflator + GE vs CH inflation",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_02/T_05_02_02.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "T_05_03_1_01",
+    "kind": "xlsx",
+    "publisher": "OCSTAT",
+    "note": "Geneva housing construction price index since Apr 1988 (1 Apr 1988=100)",
+    "url": "https://statistique.ge.ch/statistique/tel/domaines/05/05_03/T_05_03_1_01.xlsx",
+    "force_curl": true
+  },
+  {
+    "id": "BFS_CONSTRUCTION_MULTIBASE",
+    "kind": "xlsx",
+    "publisher": "BFS/OFS",
+    "note": "Swiss construction price index multibase by region/object — DAM id rotates",
+    "url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36655414/master",
+    "force_curl": false,
+    "min_bytes": 5000
+  },
+  {
+    "id": "BIS_CH_RPP_nominal",
+    "kind": "csv",
+    "publisher": "BIS via FRED",
+    "note": "CH residential property prices nominal Q1970– (FRED QCHN628BIS)",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QCHN628BIS",
+    "force_curl": false,
+    "min_bytes": 200
+  },
+  {
+    "id": "BIS_CH_RPP_real",
+    "kind": "csv",
+    "publisher": "BIS via FRED",
+    "note": "CH residential property prices real Q1970– (FRED QCHR628BIS)",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=QCHR628BIS",
+    "force_curl": false,
+    "min_bytes": 200
+  },
+  {
+    "id": "BFS_IMPI_indexwerte",
+    "kind": "xlsx",
+    "publisher": "BFS/OFS",
+    "note": "IMPI Indexwerte Q1 2017– (DAM asset id rotates — update URL when BFS publishes newer table)",
+    "url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36551633/master",
+    "force_curl": false,
+    "min_bytes": 5000
+  },
+  {
+    "id": "WUEST_PPE_LakeGeneva",
+    "kind": "cite",
+    "publisher": "Wüest Partner",
+    "skip_download": true,
+    "note": "OK to chart from public/exportable index with Source: Wüest Partner + URL. Do NOT commit CSV/XLS to GitHub. See step_1/long_run/README.md. Local export: step_1/long_run/local/.",
+    "url": "https://www.wuestpartner.com/ch-fr/blog/indices-interactifs-des-prix-de-limmobilier-suisse/"
+  },
+  {
+    "id": "WUEST_Houses_LakeGeneva",
+    "kind": "cite",
+    "publisher": "Wüest Partner",
+    "skip_download": true,
+    "note": "Same policy as WUEST_PPE_LakeGeneva — chart OK, no raw redistribution.",
+    "url": "https://www.wuestpartner.com/ch-fr/blog/indices-interactifs-des-prix-de-limmobilier-suisse/"
+  },
+  {
+    "id": "WUEST_PPE_Switzerland",
+    "kind": "cite",
+    "publisher": "Wüest Partner",
+    "skip_download": true,
+    "note": "Same-method national PPE vs Lake Geneva. Chart OK, no raw in GitHub.",
+    "url": "https://www.wuestpartner.com/ch-fr/blog/indices-interactifs-des-prix-de-limmobilier-suisse/"
+  },
+  {
+    "id": "WUEST_Houses_Switzerland",
+    "kind": "cite",
+    "publisher": "Wüest Partner",
+    "skip_download": true,
+    "note": "Same policy — chart OK, no raw redistribution.",
+    "url": "https://www.wuestpartner.com/ch-fr/blog/indices-interactifs-des-prix-de-limmobilier-suisse/"
+  },
+  {
+    "id": "IAZI_SWX_Condo",
+    "kind": "cite",
+    "publisher": "IAZI / CIFI",
+    "skip_download": true,
+    "note": "TEXT BENCHMARK ONLY. © / confidential — do not rebuild public time series without permission. OK to mention SWX IAZI Condo Index + link. See step_1/long_run/README.md.",
+    "url": "https://www.iazicifi.ch/wp-content/uploads/2024/10/Information_Indices_D.pdf"
+  }
+]

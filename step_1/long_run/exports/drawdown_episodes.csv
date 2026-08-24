@@ -1,0 +1,8 @@
+series,peak_year,trough_year,end_year,recovered,depth_pct,duration_yrs,years_to_trough,peak_value,trough_value,label
+Geneva city (OCSTAT),1990,1999,2004,True,-25.09,14,9,100.0,74.91,1990–2004
+Geneva city (OCSTAT),2012,2016,2020,True,-9.94,8,4,240.51,216.59,2012–2020
+Geneva canton (OCSTAT),1990,1999,2006,True,-20.73,16,9,100.0,79.27,1990–2006
+Geneva canton (OCSTAT),2012,2016,2021,True,-11.82,9,4,211.3,186.33,2012–2021
+Lake Geneva (Wüest),1991,2000,2005,True,-22.17,14,9,101.74,79.18,1991–2005
+Lake Geneva (Wüest),2013,2016,2019,True,-7.05,6,3,225.21,209.34,2013–2019
+Switzerland (BIS),1991,2000,2004,True,-9.88,13,9,104.9,94.54,1991–2004

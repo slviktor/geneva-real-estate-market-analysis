@@ -27,9 +27,9 @@ MISSING = {"", "-", "///", "( )", "nan", "None", "…", "..."}
 
 
 def latest(pattern: str) -> Path:
-    files = sorted(p for p in RAW.glob(pattern) if not p.name.startswith("~$"))
+    files = sorted(p for p in RAW.rglob(pattern) if not p.name.startswith("~$"))
     if not files:
-        raise FileNotFoundError(f"no files matching {pattern} in {RAW}")
+        raise FileNotFoundError(f"no files matching {pattern} under {RAW}")
     return files[-1]
 
 
